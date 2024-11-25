@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anuradha Kumari - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Anuradha Kumari</h1>
+            <p class="title">BCA Student</p>
+        </header>
+
+        <section class="about">
+            <h2>About Me</h2>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> anua97353@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +91 7901931762</p>
+                <p><i class="fas fa-map-marker-alt"></i> Pankhu, Mansar, Near Mukerian, 144211</p>
+            </div>
+        </section>
+
+        <section class="education">
+            <h2>Education</h2>
+            <div class="education-container">
+                <div class="edu-item">
+                    <div class="edu-content">
+                        <h3>Bachelor of Computer Applications (BCA)</h3>
+                        <p>2022 - 2025 (Currently Pursuing)</p>
+                        <div class="edu-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-content">
+                        <h3>12th Standard</h3>
+                        <p>Passed in 2022 with 90.4%</p>
+                        <div class="edu-icon">
+                            <i class="fas fa-school"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-content">
+                        <h3>10th Standard</h3>
+                        <p>Passed in 2020 with 96%</p>
+                        <div class="edu-icon">
+                            <i class="fas fa-school"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills" id="skills-section">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill-box">
+                    <div class="skill-title">HTML</div>
+                    <div class="skill-circle">
+                        <div class="skill-number" data-target="70">0</div>
+                        <span class="percent">%</span>
+                    </div>
+                </div>
+                <div class="skill-box">
+                    <div class="skill-title">CSS</div>
+                    <div class="skill-circle">
+                        <div class="skill-number" data-target="70">0</div>
+                        <span class="percent">%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="social">
+            <h2>Connect With Me</h2>
+            <div class="social-icons">
+                <a href="pageNotFound.html" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="pageNotFound.html" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://wa.me/917901931762" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </section>
+    </div>
+    <script>
+    const numbers = document.querySelectorAll('.skill-number');
+    let animated = false;
+
+    // Function to check if element is in viewport
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    // Function to animate numbers
+    function animateNumbers() {
+        numbers.forEach(number => {
+            const target = parseInt(number.getAttribute('data-target'));
+            let count = 0;
+            
+            const updateCount = () => {
+                if(count < target) {
+                    count++;
+                    number.textContent = count;
+                    setTimeout(updateCount, 20);
+                }
+            };
+
+            updateCount();
+        });
+    }
+
+    // Check for scroll and trigger animation
+    window.addEventListener('scroll', () => {
+        const skillsSection = document.getElementById('skills-section');
+        
+        if (isInViewport(skillsSection) && !animated) {
+            animated = true;
+            animateNumbers();
+        }
+    });
+
+    // Check if skills section is already visible on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        const skillsSection = document.getElementById('skills-section');
+        
+        if (isInViewport(skillsSection) && !animated) {
+            animated = true;
+            animateNumbers();
+        }
+    });
+
+    // Smooth scroll to top functionality
+    document.querySelector('.scroll-top').addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    </script>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-info">
+                    <h3>Anuradha Kumari</h3>
+                    <p>BCA Student | Web Developer</p>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-envelope"></i> anua97353@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +91 7901931762</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Pankhu, Mansar, Near Mukerian, 144211</p>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Me</h4>
+                    <div class="social-links">
+                        <a href="pageNotFound.html" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="pageNotFound.html" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://wa.me/917901931762" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2024 Anuradha Kumari. All Rights Reserved</p>
+                </div>
+                <div class="footer-nav">
+                    <a href="#" class="scroll-top">
+                        <i class="fas fa-arrow-up"></i> Back to Top
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
